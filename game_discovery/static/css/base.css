@@ -1,0 +1,340 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:ital,wght@0,300;1,200&display=swap');
+body{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Poppins;
+    background-color: black;
+    background-size: cover;
+    color: white;
+    overflow: auto;
+}
+.close , .toggle-btn{
+    display: none;
+}
+.act-child{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.act-child-l{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.nav-bar{
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: black;
+}
+.nav-bar .uper-bar{
+    display: flex;
+    gap: 7%;
+    height: 90px;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 0px 0px 10px blueviolet;
+}
+.nav-bar .uper-bar .search{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+     width: 700px;
+    height: 50px;
+    padding-left: 20px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 10px blueviolet;
+}
+.search:hover{
+    background-color: white;
+}
+.search:hover svg{
+    color: black;
+}
+.search:hover input{
+    color: black;
+}
+.search-bar{
+    color: white;
+}
+.search input{
+    width: 400px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 15px;
+}
+.nav-bar .uper-bar .user-act{
+    display: flex;
+    gap: 20px;
+}
+.nav-bar .lower-bar .pages{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15%;
+    font-size: 22px;
+    font-weight: bold;
+}
+.pages .svg-bg{
+    width: 28px;
+    height: 25px;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px blueviolet;
+}
+.nav-bar a{
+    color: white;
+    text-decoration: none;
+}
+.nav-bar .lower-bar{
+    margin: 20px 20px 20px 20px;
+    padding-top: 10px;
+}
+.active{
+    padding-bottom: 5px;
+    border-bottom: 2px solid blueviolet;
+}
+.active-fav{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/*content*/
+.content{
+    min-height: 50vh;
+}
+.heading{
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    font-weight: 800;
+    font-size: 38px;
+    margin-top: 10px;
+}
+.cards{
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.card{
+    width: 350px;
+    border-radius: 30px;
+    background-color: #313030;
+    display: flex;
+    flex-direction: column;
+}
+.links{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.card-link{
+    background-color: #4f4d4d;
+    border: none;
+    width: 300px;
+    height: 35px;
+    border-radius: 10px;
+    color: white;
+    font-size: 15px;
+}
+.card-link:hover{
+    /*box-shadow: 0px 0px 15px blueviolet;*/
+    font-weight: bold;
+}
+.card-title{
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+.list-group{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0px 10px 0px;
+}
+.card:hover{
+    box-shadow: 0px 0px 15px blueviolet;
+}
+.card img{
+    width: 350px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    height: 300px;
+}
+.card-des{
+    padding: 0px 15px 15px 15px;
+}
+
+/*footer*/
+
+footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 50px 10px 10px 10px;
+    background-color: black;
+}
+footer img{
+    width: 150px;
+}
+.foot-links{
+    display: flex;
+    gap: 20px;
+}
+.foot-links a:hover{
+    color: white;
+}
+/* media queries */
+@media only screen and (min-width: 769px) and (max-width: 999px) {
+    .nav-bar .lower-bar .pages {
+        gap: 10%;
+        font-size: 20px;
+        font-weight: bold;
+    }
+}
+
+@media only screen and (min-width: 620px) and (max-width: 768px) {
+      .nav-bar .lower-bar .pages {
+        gap: 5%;
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .nav-bar .uper-bar {
+        gap: 5%;
+        align-items: center;
+        padding: 15px;
+    }
+    .heading{
+        font-size: 28px;
+    }
+    .nav-bar .uper-bar .search {
+        gap: 8px;
+        width: 450px;
+        height: 50px;
+        padding-left: 20px;
+    }
+    .nav-bar img{
+         width :120px ;
+    }
+    .user-act .act-child{
+        display: none;
+    }
+    .toggle-btn{
+        display: block;
+    }
+}
+
+@media only screen and (min-width: 511px) and (max-width: 619px) {
+     .nav-bar .lower-bar .pages {
+        gap: 5%;
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .nav-bar .uper-bar {
+        gap: 3%;
+        align-items: center;
+        padding: 15px;
+    }
+    .heading{
+        font-size: 25px;
+    }
+    .nav-bar .uper-bar .search {
+        gap: 1px;
+        width: 350px;
+        height: 50px;
+        padding-left: 20px;
+    }
+     .nav-bar img{
+         width :120px ;
+    }
+    .user-act .act-child{
+        display: none;
+    }
+    .toggle-btn{
+        display: block;
+    }
+    .card{
+        width: 270px;
+    }
+    .card img {
+        width: 270px;
+        height: 210px;
+    }
+
+    .card-link {
+        width: 240px;
+        height: 35px;
+    }
+    .cards {
+        margin: 10px;
+        gap: 10px;
+        justify-content: center;
+    }
+    footer {
+        flex-direction: column;
+       gap: 15px;
+    }
+    footer img {
+        width: 130px;
+    }
+}
+
+@media only screen and (max-width: 510px) {
+    .nav-bar .lower-bar .pages {
+        gap: 5%;
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .heading{
+        margin-top: 20px;
+        font-size: 20px;
+    }
+    .nav-bar .uper-bar {
+        gap: 3%;
+        align-items: center;
+        padding: 5px;
+    }
+    .search-bar{
+        width: 80px;
+    }
+    .nav-bar .uper-bar .search {
+        gap: 1px;
+        width: 180px;
+        height: 35px;
+        padding-left: 20px;
+    }
+     .nav-bar img{
+         width :80px ;
+    }
+    .user-act .act-child{
+        display: none;
+    }
+    .toggle-btn{
+        display: block;
+    }
+    .lower-bar{
+        display: none;
+    }
+    .card{
+        width: 325px;
+    }
+    .card img {
+        width: 325px;
+        height: 210px;
+    }
+     footer {
+         flex-direction: column;
+       gap: 15px;
+    }
+    footer img {
+        width: 130px;
+    }
+}

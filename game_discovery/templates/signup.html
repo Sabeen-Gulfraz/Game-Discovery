@@ -1,0 +1,106 @@
+{% extends "base_login_signup.html" %}
+
+{% block title %}Sign up{% endblock title %}
+
+{% block style %}
+<style>
+    form{
+        height: 60vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        font-family: Poppins;
+
+    }
+    .error-message{
+        display: none;
+    }
+    .signup{
+        color: white;
+        font-size: 35px;
+    }
+    input{
+        font-size: 18px;
+        width: 400px;
+        height: 50px;
+        padding: 10px 10px 10px 25px;
+        box-sizing: border-box;
+        background-color: transparent;
+        color: white;
+        border: none;
+        outline: none;
+        box-shadow: 0px 0px 10px gray;
+        border-radius: 20px;
+    }
+    input[type=email]:hover , input[type=password]:hover{
+        border: 1px solid white;
+    }
+    input[type=submit]{
+        font-weight: bold;
+        font-size: 20px ;
+    }
+    input[type=submit]:hover{
+        background-color: white;
+        color: black;
+    }
+    form a{
+        color: white;
+        font-size: 18px;
+    }
+    @media only screen and (max-width: 510px) {
+        input {
+            font-size: 15px;
+            width: 300px;
+        }
+
+        .signup {
+            font-size: 30px;
+        }
+
+        form a {
+            font-size: 15px;
+        }
+    }
+</style>
+{% endblock style %}
+
+{% block form %}
+ <form method="post" action="{{ url_for('auth.signup') }}" id="signupForm">
+     <h1 class="signup">Sign up</h1>
+     <div id="error-message" class="error-message"></div>
+    <input type="email" name="email" placeholder="Email">
+     <input type="password" id="password" name="password" placeholder="Password">
+     <input type="password" id="c-password" name="c-password" placeholder="Confirm Password">
+     <input type="submit" value="Sign up">
+     <a href="/login">Already have an account? Log in.</a>
+ </form>
+{% endblock form %}
+
+{% block script %}
+<script>
+     $('#signupForm').submit(function(event) {
+         var email = $('#email').val();
+         var password = $('#password').val();
+         var confirm_password = $('#c-password').val();
+
+         // Client-side validation
+         if (password !== confirm_password) {
+              event.preventDefault();
+             $('#error-message').text("Passwords do not match.");
+             $('#error-message').css("display", "block")
+              $('#error-message').css("color", "red")
+              $('#error-message').css("font-size", "15px")
+             $('#password').css("border", "1px solid red");
+             $('#c-password').css("border", "1px solid red"); // Corrected ID here
+             $('#password').val('');
+             $('#c-password').val(''); // Clear the input values
+             return;
+         }
+     });
+
+
+</script>
+
+{% endblock script %}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base_login_signup.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/icon.png') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:ital,wght@0,300;1,200&display=swap"
+          rel="stylesheet">
+    <title>{% block title %}{% endblock title %} | Games Discovery</title>
+    {% block style %}{% endblock style %}
+</head>
+<body>
+<section class="bg-body">
+    <nav class="nav-bar">
+        <div>
+            <img src="{{ url_for('static', filename='images/logo.png') }}">
+        </div>
+        <section class="sidebar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-x close"
+                 viewBox="0 0 16 16">
+                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+            </svg>
+            <div class="links">
+                <a href="/login" class="link">LOG IN</a>
+                <a href="/signup" class="link">SIGN UP</a>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-list toggle-btn"
+                 viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                      d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+            </svg>
+        </section>
+    </nav>
+    <div class="bg"></div>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+             {% for msg in messages %}
+                 <div class="flash-msg">
+                     <span>{{ msg }}</span>
+                 </div>
+             {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div class="myform">
+        {% block form %}{% endblock form %}
+    </div>
+</section>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://code.jquery.com/jquery-migrate-3.4.1.js"></script>
+<script>
+    $(".toggle-btn").click(function () {
+        $(".sidebar").css("dispaly", "flex")
+        $(".sidebar").css("gap", "30px")
+        $(".links").css("display", "flex");
+        $(".links").css("flex-direction", "column");
+        $(".links").css("gap", "20px");
+        $("body").css("position", "relative")
+        $(".sidebar").css("position", "absolute")
+        $(".sidebar").css("right", "0")
+        $(".sidebar").css("padding", "20px")
+        $(".sidebar").css("width", "170px")
+        $(".sidebar").css("background-color", "white")
+        $(".link").css("color", "black")
+        $(this).css("display", "none")
+        $(".close").css("display", "block")
+    });
+    $(".close").click(function () {
+        $(".sidebar").css("dispaly", "none")
+        $(".sidebar").css("background-color", "transparent")
+        $(".sidebar").css("width", "50px")
+        $(".links").css("display", "none");
+        $("body").css("position", " ")
+        $(this).css("display", "none")
+        $(".toggle-btn").css("display", "block")
+    });
+</script>
+
+{% block script %}{% endblock script %}
+</body>
+</html>

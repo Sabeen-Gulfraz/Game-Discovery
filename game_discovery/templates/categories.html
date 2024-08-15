@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block style %}
+<style>
+   .categories{
+      margin: 20px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+   }
+   #img-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      background-size: cover;
+      filter: brightness(35%);
+   }
+    .category{
+       position: relative;
+       width: 250px;
+       height: 200px;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       border-radius: 10px;
+    }
+    .cat-name{
+       color: white;
+       font-weight: bold;
+       font-size: 25px;
+       width: 200px;
+       text-align: center;
+    }
+   .category:hover {
+      box-shadow: 0px 0px 15px blueviolet;
+   }
+   .category a{
+      text-decoration: none;
+      background-color: #797474;
+      color: white;
+      padding: 5px 10px 5px 10px;
+      border-radius: 10px;
+   }
+   .category a:hover{
+      background-color: white;
+      color: black;
+   }
+</style>
+{% endblock style %}
+
+{% block content %}
+<section class="content">
+   <h1 class="heading">{{ tittle }}</h1>
+   <section class="categories">
+<!--      <div class="category">-->
+<!--         <img id="img-bg" src="${backgroundImage}" alt="bg">-->
+<!--         <h1 class="cat-name">name</h1>-->
+<!--         <a href="/category/name">View Games</a>-->
+<!--      </div>-->
+   </section>
+</section>
+{% endblock content %}
